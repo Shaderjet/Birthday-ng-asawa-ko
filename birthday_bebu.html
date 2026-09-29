@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Bebu 💗</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffd6e7, #fff0f6, #ffc1d9);
+            font-family: Georgia, serif;
+            overflow-x: hidden;
+            color: #8b3155;
+        }
+        .container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            position: relative;
+        }
+        .card {
+            width: 90%;
+            max-width: 650px;
+            background: rgba(255,255,255,.88);
+            border-radius: 30px;
+            padding: 45px 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(139,49,85,.2);
+            position: relative;
+            z-index: 5;
+            animation: appear 2s ease;
+        }
+        @keyframes appear {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .small-text {
+            font-size: 16px;
+            letter-spacing: 3px;
+            color: #c45b82;
+            margin-bottom: 10px;
+        }
+        h1 { font-size: 45px; color: #b93668; margin-bottom: 10px; }
+        .heart { font-size: 30px; animation: heartbeat 1.5s infinite; }
+        @keyframes heartbeat {
+            0%,100% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+        }
+        .subtitle { font-size: 18px; color: #9c526d; margin: 15px 0 25px; }
+        .photo-frame {
+            width: 230px;
+            height: 280px;
+            margin: 0 auto 25px;
+            border: 8px solid #f6a7c3;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(185,54,104,.25);
+            background: #ffe3ee;
+        }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .photo-placeholder {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c45b82;
+            padding: 20px;
+            line-height: 1.5;
+        }
+        .message {
+            background: #fff3f8;
+            border-radius: 20px;
+            padding: 22px;
+            margin-top: 20px;
+            line-height: 1.8;
+            font-size: 17px;
+            color: #754052;
+        }
+        .message span { color: #c9366d; font-weight: bold; }
+        button {
+            margin-top: 25px;
+            border: none;
+            background: #d94b7b;
+            color: white;
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: .3s;
+        }
+        button:hover { background: #b93668; transform: scale(1.05); }
+        .flower {
+            position: fixed;
+            bottom: -100px;
+            z-index: 1;
+            pointer-events: none;
+            animation: floatUp linear forwards;
+        }
+        @keyframes floatUp {
+            from { transform: translateY(0) rotate(0deg); opacity: 1; }
+            to { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
+        .corner-flower {
+            position: absolute;
+            font-size: 60px;
+            z-index: 6;
+        }
+        .top-left { top: -15px; left: -10px; transform: rotate(-20deg); }
+        .top-right { top: -15px; right: -10px; transform: rotate(20deg); }
+        .bottom-left { bottom: -15px; left: -10px; transform: rotate(20deg); }
+        .bottom-right { bottom: -15px; right: -10px; transform: rotate(-20deg); }
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #b93668;
+            animation: appear 1s ease;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 34px; }
+            .card { padding: 35px 20px; }
+            .photo-frame { width: 200px; height: 250px; }
+            .message { font-size: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="corner-flower top-left">🌷🌸</div>
+            <div class="corner-flower top-right">🌸🌷</div>
+            <div class="corner-flower bottom-left">🌷🌺</div>
+            <div class="corner-flower bottom-right">🌺🌷</div>
+
+            <p class="small-text">A SPECIAL DAY FOR SOMEONE SPECIAL</p>
+            <div class="heart">💗</div>
+            <h1>Happy Birthday, Bebu</h1>
+            <p class="subtitle">Today is all about you. 🌷</p>
+
+            <div class="photo-frame">
+                <img id="herPhoto" src="her-picture.jpg" alt="Bebu's Picture"
+                     onerror="this.style.display='none'; document.getElementById('placeholder').style.display='flex';">
+                <div id="placeholder" class="photo-placeholder" style="display:none;">
+                    Put her picture here as <b>her-picture.jpg</b>
+                </div>
+            </div>
+
+            <div class="message">
+                Happy birthday, <span>bebu</span>. 💗
+                <br><br>
+                I hope today reminds you how special and loved you are.
+                You deserve all the happiness, love, and beautiful things
+                that life can give.
+                <br><br>
+                Thank you for being someone who makes ordinary days
+                feel a little more special.
+                <br><br>
+                I hope this new chapter of your life gives you more reasons
+                to smile, more memories to keep, and more moments that
+                make your heart happy.
+                <br><br>
+                <span>Happy birthday, my bebu. 🌷🌸</span>
+            </div>
+
+            <button onclick="showMessage()">Open a little surprise 💌</button>
+            <p id="surprise" class="hidden-message">
+                I hope I get to celebrate many more birthdays with you. 💗🌷
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const flowers = ["🌷", "🌸", "🌺", "💗", "🌷", "🌸"];
+
+        function createFlower() {
+            const flower = document.createElement("div");
+            flower.classList.add("flower");
+            flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.left = Math.random() * 100 + "vw";
+            flower.style.fontSize = (20 + Math.random() * 25) + "px";
+            flower.style.animationDuration = (6 + Math.random() * 6) + "s";
+            document.body.appendChild(flower);
+            setTimeout(() => flower.remove(), 12000);
+        }
+
+        setInterval(createFlower, 700);
+
+        function showMessage() {
+            document.getElementById("surprise").style.display = "block";
+            createHeartExplosion();
+        }
+
+        function createHeartExplosion() {
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement("div");
+                heart.innerHTML = "💗";
+                heart.style.position = "fixed";
+                heart.style.left = "50%";
+                heart.style.top = "50%";
+                heart.style.fontSize = "25px";
+                heart.style.zIndex = "100";
+                const x = (Math.random() - 0.5) * 500;
+                const y = (Math.random() - 0.5) * 500;
+
+                heart.animate(
+                    [
+                        { transform: "translate(0, 0)", opacity: 1 },
+                        { transform: `translate(${x}px, ${y}px)`, opacity: 0 }
+                    ],
+                    { duration: 1200, easing: "ease-out" }
+                );
+
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 1200);
+            }
+        }
+    </script>
+</body>
+</html>
